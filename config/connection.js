@@ -1,34 +1,20 @@
-// Require mysql to create a connection to mysql database
-var mysql = require("mysql");
+// Node Dependency
+var mysql = require('mysql');
+var connection;
 
-// Read and set environmental variables with .env package
-require("dotenv").config();
-//Define database connection properties (host, user, password, and database name)
-//Use production database when deployed.
+// For Heroku Deployment vs. Local MySQL Database
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else {
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'Cb11988!', // Add your password
+        database: 'burgers_db' // Add your database
+    });
+}
 
-//Heroku deployment url
 
-
-//else use localhost database for local development.
-//MySQL password is passed into connection.js from the .env file using the dotenv npm package.
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "Cb11988!",
-    database: "burgers_db"
-});
-  
-
-connection.connect(function (err) {
-    //If there is an error when connecting to the database, log the error to the console.
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-    }
-    //If a database connection is established, log the database thread number.
-    console.log("connected as id " + connection.threadId);
-});
-
-//Export the connection properties so that we can use them in other files.
+// Export the Connection
 module.exports = connection;
