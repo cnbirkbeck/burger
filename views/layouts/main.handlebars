@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Cassandra Birkbeck">
+    <title>Eat Da Burger</title>
+    <link rel="icon" href="/public/assets/images/burger_icon_top.jpg">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--custome stylesheet-->
+    <link rel="stylesheet" type="text/css" href="/public/assets/css/style.css">
+
+</head>
+
+<body>
+    <!--Container-->
+    <div class="container">
+        <br>
+        <!-- Burger Chef Image -->
+        <center>
+            <div class="row">
+                <img src="/public/assets/images/burger_chef.jpg">
+            </div>
+        </center>
+
+        <br>
+        <!-- Page Title-->
+        <center>
+            <h1 class="title_font">Eat da Burger!</h1>
+        </center>
+
+        <br>
+        <!--Burger info from index.handlebars-->
+        {{{body}}}
+        <!-- Input New Burgers Form -->
+        <form action="burger/create" method="POST">
+
+            <!-- Text Area Input -->
+            <div class="row">
+                <!-- Empty Div to help center textarea -->
+                <div class="col-md-3"></div>
+
+                <!-- Burger Input Box -->
+                <div class="form-group col-md-6">
+                    <center><label for="new_burger" class="title_font">Request a new burger and place your
+                            order!</label></center>
+                    <textarea class="form-control" columns="8" rows="4" id="new_burger" name="burger_name"></textarea>
+                </div>
+
+                <!-- Empty Div to help center textarea -->
+                <div class="col-md-3"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <center>
+                <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
+            </center>
+
+        </form>
+
+        <br>
+
+    </div>
+
+    <!-- Link in jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+
+    
+</body>
+
+</html>
